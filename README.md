@@ -25,5 +25,5 @@ Code Lab
 ### 設計書
 
 ### 機能一覧
-
+https://docs.google.com/spreadsheets/d/15ZvDLCSnakj6jnqyliF4FBR8b0-uxrH4Ai3rrljH8jE/edit?usp=sharing
 
