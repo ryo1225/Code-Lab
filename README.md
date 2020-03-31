@@ -1,24 +1,29 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# <アプリ名>
+もくもくnote、もくもく
 
-Things you may want to cover:
+## サイト概要
+エンジニア専用のもくもく会SNS
+(もくもく会情報をSNSみたいに投稿できる。
+このアプリを使うことでエンジニア同士が気軽に勉強仲間を募集できる)
 
-* Ruby version
+### サイトテーマ
+プログラミング初心者の方でもエンジニアと簡単に繋がれる
 
-* System dependencies
+### テーマを選んだ理由
+自分が独学で勉強している時にエンジニアの人と繋がりたくても繋がる方法がなかった。
+もくもく会に参加しようとしたが、もくもく会の応募ページのデザインが質素で応募しにくかったので、
+もっと気軽に応募できるようなサイトを作りたいと思ったから。
 
-* Configuration
+### ターゲットユーザ
+プログラミング初心者～中級者(エンジニアビギナー)
 
-* Database creation
+### 主な利用シーン
+プログラミング学習をある程度進めていき、他にも同じように勉強している仲間を見つけたい時
 
-* Database initialization
+## 設計書
 
-* How to run the test suite
+### 機能一覧
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
