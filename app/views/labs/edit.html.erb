@@ -1,0 +1,61 @@
+<div class="container">
+	<div class="row">
+			<h2>もくもく会編集画面</h2>
+
+
+		<div class="col-md-8 col-md-offset-4">
+			<%= form_for(@lab) do |f| %>
+				<div class="form-group">
+					<%= f.attachment_field :image %>
+				</div>
+				<div class="form-group">
+					<%= f.label  :ラボ名, class: "col-md-2" %>
+					<%= f.text_field :title, autofocus: true %>
+				</div>
+				<div class="form-group">
+					<%= f.label  :ラボ紹介, class: "col-md-2" %>
+					<%= f.text_area :introduction, autofocus: true %>
+				</div>
+				<div class="form-group">
+					<%= f.label  :日時, class: "col-md-2" %>
+					<%= f.select :month,[1,2,3,4,5,6,7,8,9,10,11,12] %>月
+					<%= f.select :day,[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31] %>
+				</div>
+				<div class="form-group">
+					<%= f.label  :時間, class: "col-md-2" %>
+					<%= f.select :time,[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24] %>時〜
+				</div>
+				<div class="form-group">
+					<%= f.label  :地域, class: "col-md-2" %>
+					<%= f.select :region,["北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県","茨城県","栃木県","群馬県","埼玉県","千葉県","東京都","神奈川県","新潟県","富山県","石川県","福井県","山梨県","長野県","岐阜県","静岡県","愛知県","三重県","滋賀県","京都府","大阪府","兵庫県","奈良県","和歌山県","鳥取県","島根県","岡山県","広島県","山口県","徳島県","香川県","愛媛県","高知県","福岡県","佐賀県","長崎県","熊本県","大分県","宮崎県","鹿児島県","沖縄県"] %>
+				</div>
+				<div class="form-group">
+					<%= f.label  :場所詳細, class: "col-md-2" %>
+					<%= f.text_area :place, autofocus: true %>
+				</div>
+				<div class="form-group">
+					<%= f.label  :扱う言語, class: "col-md-2" %>
+					<%= f.text_field :language, autofocus: true %>
+				</div>
+				<div class="form-group">
+					<%= f.label  :参加価格, class: "col-md-2" %>
+					<%= f.text_field :price, autofocus: true %>円
+				</div>
+				<div class="form-group">
+					<%= f.label  :募集人数, class: "col-md-2" %>
+					<%= f.text_field :people, autofocus: true %>人
+				</div>
+				<div class="form-group">
+					<%= f.submit '投稿',class:"btn btn-primary" %>
+				</div>
+
+
+			<% end %>
+		</div>
+
+
+
+
+
+	</div>
+</div>
