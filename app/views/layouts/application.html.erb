@@ -10,6 +10,46 @@
   </head>
 
   <body>
+
+<header>
+  <nav>
+    <span class="lab-logo">Code Lab</span>
+    <% if user_signed_in? %>
+    <ul class="list-signin">
+      <li class="list">
+         <!-- ↓以下のコードは、5章で正しいroutingに書き直します。 -->
+        <%= link_to 'User Info', "#",class: "link-color" %>
+      </li>
+      <li class="list">
+        <%= link_to 'もくもく会一覧', labs_path,class: "link-color" %>
+      </li>
+      <li class="list">
+        <%= link_to 'LIKE一覧', "#",class: "link-color" %>
+      </li>
+      <li class="list">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: "link-color" %>
+      </li>
+    </ul>
+    <% else %>
+    <ul class="list-signin">
+      <li class="list">
+        <%= link_to 'Home', root_path,class: "link-color" %>
+      </li>
+      <li class="list">
+        <%= link_to 'About', homes_about_path,class: "link-color" %>
+      </li>
+      <li class="list">
+        <%= link_to "新規登録", new_user_registration_path,class: "link-color" %>
+      </li>
+      <li class="list">
+        <%= link_to "ログイン", new_user_session_path,class: "link-color" %>
+      </li>
+    </ul>
+    <% end %>
+  </nav>
+</header>
+
+
     <%= yield %>
   </body>
 </html>

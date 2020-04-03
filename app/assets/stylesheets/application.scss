@@ -15,3 +15,45 @@
  */
    @import "bootstrap-sprockets";
    @import "bootstrap";
+
+   header {
+   	height: 100px;
+   	background-color: limegreen;
+   }
+
+   nav {
+    position: relative;
+	height: 100px;
+	margin: 0 auto;
+	}
+
+	.lab-logo {
+	position: absolute;
+	top: 35px;
+	left: 30px;
+	color: white;
+	font-size: 25px;
+	}
+
+	.list-signin {
+	position: absolute;
+	top: 35px;
+	right: 20px;
+    }
+
+    .list {
+	display: inline-block;
+	font-size: 15px;
+	margin: 0 15px;
+	}
+
+	.link-color {
+	color: white;
+	text-decoration: none;
+	font-size: 20px;
+	}
+
+	.recruit-text {
+		margin-top: 100px;
+	}
+

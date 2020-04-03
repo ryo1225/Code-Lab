@@ -1,5 +1,7 @@
 class LabsController < ApplicationController
 
+ before_action :authenticate_user!
+
   def new
   	@lab = Lab.new
   end
