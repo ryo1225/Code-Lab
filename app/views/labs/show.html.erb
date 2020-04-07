@@ -5,8 +5,11 @@
 
 
 		<div class="col-md-8 col-md-offset-3">
+
 			   <h4>lab投稿ユーザーは編集できる</h4>
+			   	<% if @lab.user == current_user %>
  			   <p><%=link_to '編集', edit_lab_path(@lab) %></p>
+ 			   	<% end %>
 			  <p><%= attachment_image_tag @lab, :image, :fill, 500, 300, format: 'jpeg' %></p>
 			  <h2><%= @lab.title %></h2>
 			  <p><b>開催者一言</b> <%= @lab.introduction %></p>
