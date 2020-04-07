@@ -1,5 +1,5 @@
 class Lab < ApplicationRecord
-	attachment :image
 
-	belongs_to :user
+	belongs_to :user, optional: true
+	attachment :image
 end
