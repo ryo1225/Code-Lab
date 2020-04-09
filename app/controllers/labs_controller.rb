@@ -20,6 +20,7 @@ class LabsController < ApplicationController
   end
   def show
   	@lab = Lab.find(params[:id])
+    @lab_comment = LabComment.new
   end
   def edit
   	@lab = Lab.find(params[:id])
