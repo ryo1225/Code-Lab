@@ -2,21 +2,24 @@
 	<div class="row">
 
 		<h2>もくもく会一覧</h2>
-			<p><%= link_to '新規投稿', new_lab_path, class:"btn btn-success" %></p>
+
 
 		<div class="col-md-9 col-md-offset-2">
+				<p><%= link_to "新規投稿", new_lab_path, class:"btn btn-success" %></p>
 			<div class="form-group">
 			 <% @labs.each do |lab| %>
-			  <p><%= attachment_image_tag lab, :image, :fill, 550, 300, format: 'jpeg' %></p>
+			  	<p><%= attachment_image_tag lab, :image, :fill, 550, 300, format: 'jpeg' %></p>
 			  <h2><%= link_to lab.title,lab_path(lab) %></h2>
-			  <p><b>開催者一言</b> <%= lab.introduction %></p>
-			  <p><b>日時　</sb><%= lab.month %>月<%= lab.day %>日 <%= lab.time %>時〜</p>
-			  <p><b>地域</b> <%= lab.region %> <b>場所詳細</b> <%= lab.place %></p>
-			  <p><b>扱う言語</b> <%= lab.language %></p>
-			  <p><b>参加価格</b> <%= lab.price %>円　<b>参加人数</b> <%= lab.people %>人</p>
+			  	<p><%= attachment_image_tag(lab.user, :profile_image, :fill, 50, 50, fallback: "no-image", size:'50x50') %>
+			  		<br>主催者<%= link_to lab.user.name, user_path(lab.user) %></p>
+			  	<p><b>ラボの特徴</b> <%= lab.introduction %></p>
+			  	<p><b>日時　</sb><%= lab.month %>月<%= lab.day %>日 <%= lab.time %>時〜</p>
+			  	<p><b>地域</b> <%= lab.region %> <b>場所詳細</b> <%= lab.place %></p>
+			  	<p><b>扱う言語</b> <%= lab.language %></p>
+			  	<p><b>参加価格</b> <%= lab.price %>円　<b>参加人数</b> <%= lab.people %>人</p>
+			  	<p><b>予定参加人数</b> 人</p>
 			 <% end %>
 
-			 <h3>主催者</h3>
 			</div>
 		</div>
 
