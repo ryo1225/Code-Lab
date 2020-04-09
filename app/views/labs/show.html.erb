@@ -4,7 +4,7 @@
 
 
 
-		<div class="col-md-8 col-md-offset-3">
+	  <div class="col-md-8 col-md-offset-3">
 
 			  	<p><%= attachment_image_tag @lab, :image, :fill, 500, 300, format: 'jpeg' %></p>
 			  <h2><%= @lab.title %></h2>
@@ -18,7 +18,39 @@
  			   	   <%= link_to '削除', lab_path(@lab), method: :delete, class:"btn btn-danger" %>
  			   	</p>
  			<% end %>
-		</div>
+
+
+ 			<%= form_for [@lab, @lab_comment] do |f| %>
+    	<div class="row">
+        	<div class="col-md-8">
+            	<%= f.text_area :comment, rows:'3', class: "form-control",placeholder: "コメントをここに" %>
+
+    			<%= f.submit "送信する", class: "btn btn-primary pull-right" %>
+    	 	</div>
+    	</div>
+			<% end %>
+
+
+	    <% @lab.lab_comments.each do |lab_comment| %>
+			<div class="comment-text">
+                    <div class="comment-author clearfix">
+                        <b><%= lab_comment.user.name %>のコメント</b>
+                        <span class="comment-meta">
+                          <span class="comment-date"><%= lab_comment.created_at.strftime('%Y/%m/%d') %></span>
+                        </span>
+                    </div>
+                    <div class="comment-entry"><%= lab_comment.comment %></div>
+        		<% if lab_comment.user == current_user %>
+        		  <p>
+        			<%= link_to "削除する", lab_lab_comments_path(lab_comment.id), method: :delete, "data-confirm" => "Are you sure?" %>
+        		  </p>
+        		<% end %>
+        	</div>
+        <% end %>
+
+
+
+	  </div>
 
 
 	</div>
