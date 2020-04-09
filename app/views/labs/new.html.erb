@@ -3,7 +3,22 @@
 		<h2>もくもく会新規投稿</h2>
 
 
+<div class="col-md-4 col-md-offset-4">
+	<% if @lab.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <ul>
+      <% @lab.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+	<% end %>
+</div>
+
+
 		<div class="col-md-8 col-md-offset-4">
+
+
 			<%= form_for(@lab) do |f| %>
 				<div class="form-group">
 					<%= f.attachment_field :image %>

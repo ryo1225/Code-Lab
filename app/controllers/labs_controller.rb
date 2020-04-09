@@ -7,11 +7,16 @@ class LabsController < ApplicationController
   end
   def create
   	@lab = Lab.new(lab_params)
-  	@lab.save
-  	redirect_to labs_path
+  	@lab.user_id = current_user.id
+  	if @lab.save
+  	   redirect_to labs_path
+  	else
+  	   render action: :new
+    end
   end
   def index
   	@labs = Lab.all
+  	@user = current_user
   end
   def show
   	@lab = Lab.find(params[:id])
@@ -21,11 +26,16 @@ class LabsController < ApplicationController
   end
   def update
   	@lab = Lab.find(params[:id])
-  	@lab.update(lab_params)
-  	redirect_to lab_path(@lab)
+  	if @lab.update(lab_params)
+  	   redirect_to lab_path(@lab)
+  	else
+  		render action: :edit
+  	end
   end
   def destroy
-
+  	@lab = Lab.find(params[:id])
+  	@lab.destroy
+  	redirect_to lab_path(@lab)
   end
   private
   def lab_params
