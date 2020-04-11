@@ -78,3 +78,12 @@ gem "refile-mini_magick"
 
 #ページング
 gem 'kaminari','~> 1.1.1'
+
+
+#環境変数
+gem 'dotenv-rails'
+
+#MySQL
+group :production do
+  gem 'mysql2'
+end
