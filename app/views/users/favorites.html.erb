@@ -1,0 +1,26 @@
+<div class="container">
+	<div class="row">
+		<h2><b>いいね一覧</b></h2>
+	  <div class="col-md-12">
+
+
+
+		  			<% @favorites.each do |favorite| %>
+		  		<div class="col-md-4">
+  						<% lab = Lab.find_by(id: favorite.lab_id) %>
+  						<% user = User.find_by(id: lab.user_id) %>
+							<p><%= attachment_image_tag lab, :image, :fill, 350, 200, format: 'jpeg' %></p>
+	  						<h4><%= link_to lab.title,lab_path(lab) %></h4>
+	  						<p><b>地域</b> <%= lab.region %> <b>場所</b> <%= lab.place %></p>
+			  				<p><b>日時　</b><%= lab.month %>月<%= lab.day %>日 <%= lab.time %>時〜</p>
+			  				<p><b>扱う言語</b> <%= lab.language %></p>
+			  				<p><b>参加価格</b> <%= lab.price %>円　<b>参加人数</b> <%= lab.people %>人</p>
+			  	</div>
+		  			<% end %>
+
+
+
+      </div>
+
+	</div>
+</div>

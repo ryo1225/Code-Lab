@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-  	@labs = @user.labs.page(params[:page]).per(3)
+  	@labs = @user.labs.page(params[:page]).per(6)
   end
   def edit
   	@user = User.find(params[:id])
@@ -11,6 +11,10 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   	@user.update(user_params)
   	redirect_to user_path(@user)
+  end
+  def favorites
+  	@user = User.find(params[:id])
+  	@favorites = Favorite.where(user_id: @user.id)
   end
   private
     def user_params

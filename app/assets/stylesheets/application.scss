@@ -13,12 +13,21 @@
  *= require_tree .
  *= require_self
  */
+   @import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
    @import "bootstrap-sprockets";
    @import "bootstrap";
 
+
+	body {
+		font-family: 'Noto Sans JP','メイリオ','Arial',YuGothic,'Yu
+		Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3', Meiryo,'ＭＳ ゴシック',sans-serif;
+	}
+
    header {
    	height: 100px;
-   	background-color: limegreen;
+   	background-color: white;
+   	font-weight:bold;
+   	box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
    }
 
    nav {
@@ -31,7 +40,7 @@
 	position: absolute;
 	top: 35px;
 	left: 30px;
-	color: white;
+	color: #37beb0;
 	font-size: 25px;
 	}
 
@@ -44,13 +53,18 @@
     .list {
 	display: inline-block;
 	font-size: 15px;
+	font-weight:bold;
 	margin: 0 15px;
 	}
 
 	.link-color {
-	color: white;
+	color: #333333;
 	text-decoration: none;
 	font-size: 20px;
+	}
+
+	.link-color:hover {
+	color: #37beb0;
 	}
 
 	.recruit-text {

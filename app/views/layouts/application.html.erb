@@ -17,13 +17,13 @@
     <% if user_signed_in? %>
     <ul class="list-signin">
       <li class="list">
-        <%= link_to 'User Info', user_path(current_user.id),class: "link-color" %>
+        <%= link_to 'マイページ', user_path(current_user.id),class: "link-color" %>
       </li>
       <li class="list">
         <%= link_to 'もくもく会一覧', labs_path,class: "link-color" %>
       </li>
       <li class="list">
-        <%= link_to 'LIKE一覧', "#",class: "link-color" %>
+        <%= link_to 'いいね一覧', "/users/#{@user.id}/favorites",class: "link-color" %>
       </li>
       <li class="list">
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: "link-color" %>

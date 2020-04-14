@@ -4,6 +4,7 @@ class LabsController < ApplicationController
 
   def new
   	@lab = Lab.new
+    @user = current_user
   end
   def create
   	@lab = Lab.new(lab_params)
@@ -21,9 +22,11 @@ class LabsController < ApplicationController
   def show
   	@lab = Lab.find(params[:id])
     @lab_comment = LabComment.new
+    @user = current_user
   end
   def edit
   	@lab = Lab.find(params[:id])
+    @user = current_user
   end
   def update
   	@lab = Lab.find(params[:id])
