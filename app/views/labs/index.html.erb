@@ -1,16 +1,16 @@
 <div class="container">
 	<div class="row">
 
-		<h2>もくもく会一覧</h2>
+		<h2><b>もくもく会一覧</b></h2>
 
 
-		<div class="col-md-9 col-md-offset-2">
-				<p><%= link_to "新規投稿", new_lab_path, class:"btn btn-success" %></p>
+		<div class="col-md-6 col-md-offset-1">
+			  <p><%= link_to "+", new_lab_path, class:"btn btn-info rounded-circle p-0" %></p>
 			<div class="form-group">
 			 <% @labs.each do |lab| %>
 			  	<p><%= attachment_image_tag lab, :image, :fill, 550, 300, format: 'jpeg' %></p>
 			  <h2><%= link_to lab.title,lab_path(lab) %></h2>
-			  	<p><%= attachment_image_tag(lab.user, :profile_image, :fill, 50, 50, fallback: "no-image", size:'50x50') %>
+			  	<p><%= attachment_image_tag(lab.user, :profile_image, :fill, 50, 50, format: 'jpeg' ) %>
 			  		<br>主催者<%= link_to lab.user.name, user_path(lab.user) %></p>
 			  	<p><b>ラボの特徴</b> <%= lab.introduction %></p>
 			  	<p><b>日時　</sb><%= lab.month %>月<%= lab.day %>日 <%= lab.time %>時〜</p>

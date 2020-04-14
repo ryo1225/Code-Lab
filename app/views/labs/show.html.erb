@@ -1,10 +1,10 @@
 <div class="container">
 	<div class="row">
-		<h2>もくもく会詳細</h2>
+		<h2><b>もくもく会詳細</b></h2>
 
 
 
-	  <div class="col-md-8 col-md-offset-3">
+	  <div class="col-md-6 col-md-offset-1">
 
 			  	<p><%= attachment_image_tag @lab, :image, :fill, 500, 300, format: 'jpeg' %></p>
 			  <h2><%= @lab.title %></h2>
@@ -13,6 +13,21 @@
 			  	<p><b>地域</b> <%= @lab.region %> <b>場所詳細</b> <%= @lab.place %></p>
 			  	<p><b>扱う言語</b> <%= @lab.language %></p>
 			  	<p><b>参加価格</b> <%= @lab.price %>円　<b>参加人数</b> <%= @lab.people %>人</p>
+    <!--いいね機能-->
+        <p>
+          <% if @lab.favorited_by?(current_user) %>
+            <%= link_to lab_favorites_path(@lab, redirect_id: 0), method: :delete do %>
+              <span class="glyphicon glyphicon-heart"></span><%= @lab.favorites.count %>
+            <% end %>
+          <% else %>
+            <%= link_to lab_favorites_path(@lab, redirect_id: 0), method: :post do %>
+              <span class="glyphicon glyphicon-heart-empty"></span><%= @lab.favorites.count %>
+            <% end %>
+          <% end %>
+        </p>
+
+
+
 			<% if @lab.user == current_user %>
  			   	<p><%= link_to '編集', edit_lab_path(@lab),class:"btn btn-success" %>
  			   	   <%= link_to '削除', lab_path(@lab), method: :delete, class:"btn btn-danger" %>
