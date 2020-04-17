@@ -29,7 +29,7 @@
 	</div>
 
 	<div class="row">
-  		<!-- <h2>以前のもくもく会開催(<%= @user.labs.count %>件)</h2> -->
+  		<h2>以前のもくもく会開催</h2>
   		<% @labs.each do |lab| %>
 	  		<div class="col-md-4">
 				<p><%= attachment_image_tag lab, :image, :fill, 350, 200, format: 'jpeg' %></p>
