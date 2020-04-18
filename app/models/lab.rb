@@ -16,8 +16,10 @@ class Lab < ApplicationRecord
 
 
   def self.match(model, content)
-    if model == 'lab'
-      Lab.where("(region LIKE ? ) OR (place LIKE ?) OR (language LIKE ?)", "%#{content}%", "%#{content}%", "%#{content}%")
+    if model == 'language'
+      Lab.where("(language LIKE ? )", "%#{content}%")
+    else
+       Lab.where("(region LIKE ? ) OR (place LIKE ?)", "%#{content}%", "%#{content}%")
     end
   end
 
