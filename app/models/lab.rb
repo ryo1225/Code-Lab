@@ -14,4 +14,13 @@ class Lab < ApplicationRecord
 	validates :price, presence: true, numericality: true
 	validates :people, presence: true, numericality: true
 
+
+  def self.match(model, content)
+    if model == 'lab'
+      Lab.where("(region LIKE ? ) OR (place LIKE ?) OR (language LIKE ?)", "%#{content}%", "%#{content}%", "%#{content}%")
+    end
+  end
+
+
+
 end

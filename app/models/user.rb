@@ -9,4 +9,9 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   attachment :profile_image
 
+  validates :name, presence: true, length: {maximum: 20}
+  validates :email, presence: true, length: {maximum: 50}
+  validates :word, length: {maximum: 50}
+  validates :profile_image, presence: true
+
 end
