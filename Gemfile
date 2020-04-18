@@ -85,6 +85,8 @@ gem "refile-mini_magick"
 #ページング
 gem 'kaminari','~> 1.1.1'
 
+#アイコン
+gem 'font-awesome-sass', '~> 5.4.1'
 
 #環境変数
 gem 'dotenv-rails'
