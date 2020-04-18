@@ -31,7 +31,7 @@
           		<div class="search-form">
             <%= form_tag(search_search_path, method: :get) do %>
               		<%= text_field_tag 'search[content]' %>
-              		<%= select_tag 'search[model]', options_for_select({ "言語" => "lab", "地域" => "lab" }) %>
+              		<%= select_tag 'search[model]', options_for_select({ "言語" => "language", "地域" => "place" }) %>
               		<%= submit_tag '検索', class: "btn btn-primary" %>
             <% end %>
           		</div>

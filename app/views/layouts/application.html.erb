@@ -23,7 +23,7 @@
         <%= link_to 'もくもく会一覧', labs_path,class: "link-color" %>
       </li>
       <li class="list">
-        <%= link_to "いいね", "/users/#{@user.id}/favorites",class: "link-color" %>
+        <%= link_to "いいね", "/users/#{current_user.id}/favorites",class: "link-color" %>
       </li>
       <li class="list">
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: "link-color" %>
