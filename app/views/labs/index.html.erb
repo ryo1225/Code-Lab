@@ -3,15 +3,15 @@
 
 		<h2><b>もくもく会一覧</b></h2>
 
-
+	<div class="col-md-12">
 		<div class="col-md-6 col-md-offset-1">
-			  <p><%= link_to "+", new_lab_path, class:"btn btn-info rounded-circle p-0" %></p>
+			  <%= link_to "+", new_lab_path, class:"button" %>
 			<div class="form-group">
 			 <% @labs.each do |lab| %>
-			  	<p><%= attachment_image_tag lab, :image, :fill, 550, 300, format: 'jpeg' %></p>
-			  <h2><%= link_to lab.title,lab_path(lab) %></h2>
-			  	<p><%= attachment_image_tag(lab.user, :profile_image, :fill, 50, 50, format: 'jpeg' ) %>
-			  		<br>主催者<%= link_to lab.user.name, user_path(lab.user) %></p>
+			  	<p><%= attachment_image_tag lab, :image, :fill, 550, 300 %></p>
+			  <h2><%= link_to lab.title,lab_path(lab),class:"lab-title" %></h2>
+			  	<p><%= attachment_image_tag(lab.user, :profile_image, :fill, 50, 50 ) %>
+			  		<br>主催者<%= link_to lab.user.name, user_path(lab.user),class:"lab-user-name" %></p>
 			  	<p><b>ラボの特徴</b> <%= lab.introduction %></p>
 			  	<p><b>日時　</sb><%= lab.month %>月<%= lab.day %>日 <%= lab.time %>時〜</p>
 			  	<p><b>地域</b> <%= lab.region %> <b>場所詳細</b> <%= lab.place %></p>
@@ -20,11 +20,27 @@
 			  	<p>コメント<%= lab.lab_comments.count %>件</p>
 			  	<p><b>予定参加人数</b> 人</p>
 			 <% end %>
-
 			</div>
 		</div>
 
 
+
+		<!------- 検索機能 ---------->
+		<div class="col-md-4">
+        	<div class="search">
+          		<div class="search-form">
+            <%= form_tag(search_search_path, method: :get) do %>
+              		<%= text_field_tag 'search[content]' %>
+              		<%= select_tag 'search[model]', options_for_select({ "言語" => "lab", "地域" => "lab" }) %>
+              		<%= submit_tag '検索', class: "btn btn-primary" %>
+            <% end %>
+          		</div>
+       		 </div>
+		</div>
+
+
+
+	</div>
 
 	</div>
 </div>

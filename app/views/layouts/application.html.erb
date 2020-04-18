@@ -17,7 +17,7 @@
     <% if user_signed_in? %>
     <ul class="list-signin">
       <li class="list">
-        <%= link_to 'マイページ', user_path(current_user.id),class: "link-color" %>
+        <%= link_to 'プロフィール', user_path(current_user.id),class: "link-color" %>
       </li>
       <li class="list">
         <%= link_to 'もくもく会一覧', labs_path,class: "link-color" %>
@@ -47,6 +47,8 @@
     <% end %>
   </nav>
 </header>
+
+
 
 
     <%= yield %>

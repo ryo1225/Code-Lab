@@ -2,8 +2,6 @@
 	<div class="row">
 		<h2><b>もくもく会詳細</b></h2>
 
-
-
 	  <div class="col-md-6 col-md-offset-1">
 
 			  	<p><%= attachment_image_tag @lab, :image, :fill, 500, 300, format: 'jpeg' %></p>
@@ -63,9 +61,20 @@
         	</div>
         <% end %>
 
-
-
 	  </div>
+
+            <!------- 検索機能 ---------->
+        <div class="col-md-4">
+            <div class="search">
+                <div class="search-form">
+            <%= form_tag(search_search_path, method: :get) do %>
+                    <%= text_field_tag 'search[content]' %>
+                    <%= select_tag 'search[model]', options_for_select({ "言語" => "lab", "地域" => "lab" }) %>
+                    <%= submit_tag '検索', class: "btn btn-primary" %>
+            <% end %>
+                </div>
+             </div>
+        </div>
 
 
 	</div>
