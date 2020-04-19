@@ -14,6 +14,9 @@ class Lab < ApplicationRecord
 	validates :price, presence: true, numericality: true
 	validates :people, presence: true, numericality: true
 
+  geocoded_by :place
+  after_validation :geocode, if: :place_changed?
+
 
   def self.match(model, content)
     if model == 'language'
@@ -22,7 +25,6 @@ class Lab < ApplicationRecord
        Lab.where("(region LIKE ? ) OR (place LIKE ?)", "%#{content}%", "%#{content}%")
     end
   end
-
 
 
 end
