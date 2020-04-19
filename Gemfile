@@ -88,6 +88,9 @@ gem 'kaminari','~> 1.1.1'
 #アイコン
 gem 'font-awesome-sass', '~> 5.4.1'
 
+#地図表示(緯度・経度)
+gem 'geocoder'
+
 #環境変数
 gem 'dotenv-rails'
 
