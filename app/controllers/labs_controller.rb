@@ -18,6 +18,7 @@ class LabsController < ApplicationController
   def index
   	@labs = Lab.all
   	@user = current_user
+
   end
   def show
   	@lab = Lab.find(params[:id])

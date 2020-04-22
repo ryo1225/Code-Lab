@@ -1,0 +1,13 @@
+
+
+        <p>
+          <% if @lab.favorited_by?(current_user) %>
+            <%= link_to lab_favorites_path(@lab.id), method: :delete, remote: true do %>
+              <span class="glyphicon glyphicon-heart like-color"></span><%= @lab.favorites.count %>
+            <% end %>
+          <% else %>
+            <%= link_to lab_favorites_path(@lab.id), method: :post, remote: true do %>
+              <span class="glyphicon glyphicon-heart-empty like-color"></span><%= @lab.favorites.count %>
+            <% end %>
+          <% end %>
+        </p>

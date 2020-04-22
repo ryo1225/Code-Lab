@@ -13,7 +13,7 @@
 			  	<p><%= attachment_image_tag(lab.user, :profile_image, :fill, 50, 50 ) %>
 			  		<br>主催者<%= link_to lab.user.name, user_path(lab.user),class:"lab-user-name" %></p>
 			  	<p><b>ラボの特徴</b> <%= lab.introduction %></p>
-			  	<p><b>日時　</sb><%= lab.month %>月<%= lab.day %>日 <%= lab.time %>時〜</p>
+			  	<p><b>日時　</b><%= lab.month %>月<%= lab.day %>日 <%= lab.time %>時〜</p>
 			  	<p><b>地域</b> <%= lab.region %> <b>場所詳細</b> <%= lab.place %></p>
 			  	<p><b>扱う言語</b> <%= lab.language %></p>
 			  	<p><b>参加価格</b> <%= lab.price %>円　<b>参加人数</b> <%= lab.people %>人</p>
@@ -36,7 +36,12 @@
             <% end %>
           		</div>
        		 </div>
-		</div>
+
+       		 <!--ランキング表示-->
+       	<h3>人気のもくもく会</h3>
+
+
+		</div><!--col-md-4-->
 
 
 
