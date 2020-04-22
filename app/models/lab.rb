@@ -8,6 +8,8 @@ class Lab < ApplicationRecord
           favorites.where(user_id: user.id).exists?
         end
 
+  scope :recent, -> { where(id: Favorite.group(:lab_id).order('count(lab_id) desc').limit(3).pluck(:lab_id)) }
+
 	validates :title, presence: true, length: {maximum: 20}
 	validates :introduction, presence: true, length: {maximum: 50}
 	validates :month, :day, :time, :region, :place, :language, :image, presence: true
