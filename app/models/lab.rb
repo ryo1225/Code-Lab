@@ -7,6 +7,10 @@ class Lab < ApplicationRecord
         def favorited_by?(user)
           favorites.where(user_id: user.id).exists?
         end
+    has_many :attends, dependent: :destroy
+        def attended_by?(user)
+          attends.where(user_id: user.id).exists?
+        end
 
   scope :recent, -> { where(id: Favorite.group(:lab_id).order('count(lab_id) desc').limit(3).pluck(:lab_id)) }
 

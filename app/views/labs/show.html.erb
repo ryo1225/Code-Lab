@@ -11,14 +11,18 @@
 			  	<p><b>地域</b> <%= @lab.region %> <b>場所詳細</b> <%= @lab.place %></p>
 			  	<p><b>扱う言語</b> <%= @lab.language %></p>
 			  	<p><b>参加費</b> <%= @lab.price %>円</p>
-                <p><b>参加希望人数</b> 人　<b>最大参加人数</b> <%= @lab.people %>人</p>
+                <p><b>参加希望人数<%= @lab.attends.count %></b> 人　<b>最大参加人数</b> <%= @lab.people %>人</p>
     <!--参加希望ボタン-->
         <p>
-            <% if @lab.user == current_user %>
-                <span class="btn btn-success">参加希望</span>
-            <% else %>
-                <span class="btn btn-danger">参加希望済み</span>
+          <% if @lab.attended_by?(current_user) %>
+            <%= link_to lab_attends_path(@lab), method: :delete do %>
+               <span class="btn btn-success">参加希望済み</span>
             <% end %>
+          <% else %>
+            <%= link_to lab_attends_path(@lab), method: :post do %>
+              <span class="btn btn-info">参加を申し込む</span>
+            <% end %>
+          <% end %>
         </p>
 
     <!--いいね機能-->
