@@ -4,21 +4,20 @@
 		<h2><b>もくもく会一覧</b></h2>
 
 	<div class="col-md-12">
-		<div class="col-md-6 col-md-offset-1">
+		<div class="col-md-7 col-md-offset-1">
 			  <%= link_to "+", new_lab_path, class:"button" %>
 			<div class="form-group">
 			 <% @labs.each do |lab| %>
-			  	<p><%= attachment_image_tag lab, :image, :fill, 550, 300 %></p>
+			  	<p><%= attachment_image_tag lab, :image, :fill, 520, 300 %></p>
 			  <h2><%= link_to lab.title,lab_path(lab),class:"lab-title" %></h2>
 			  	<p><%= attachment_image_tag(lab.user, :profile_image, :fill, 50, 50 ) %>
 			  		<br>主催者<%= link_to lab.user.name, user_path(lab.user),class:"lab-user-name" %></p>
-			  	<p><b>ラボの特徴</b> <%= lab.introduction %></p>
-			  	<p><b>日時　</b><%= lab.month %>月<%= lab.day %>日 <%= lab.time %>時〜</p>
+			  	<p><b>開催者一言</b> <%= lab.introduction %></p>
+			  	<p><b>日時</b> <%= lab.month %>月<%= lab.day %>日 <%= lab.time %>時〜</p>
 			  	<p><b>地域</b> <%= lab.region %> <b>場所詳細</b> <%= lab.place %></p>
 			  	<p><b>扱う言語</b> <%= lab.language %></p>
-			  	<p><b>参加価格</b> <%= lab.price %>円　<b>参加人数</b> <%= lab.people %>人</p>
-			  	<p>コメント<%= lab.lab_comments.count %>件</p>
-			  	<p><b>予定参加人数</b> 人</p>
+			  	<p><b>参加費</b> <%= lab.price %>円　<b>コメント</b><%= lab.lab_comments.count %>件</p>
+			  	<p><b>参加希望人数</b> 人　<b>最大参加人数</b> <%= lab.people %>人</p>
 			 <% end %>
 			</div>
 		</div>
@@ -38,21 +37,20 @@
        		 </div>
 
        		 <!--ランキング表示-->
-       	<h3>人気のもくもく会</h3>
+       		<h3>人気のもくもく会</h3>
 
        		<% @all_ranks.each do |lab| %>
-
-       			<p><%= attachment_image_tag lab, :image, :fill, 200, 150 %></p>
-				<p><%= lab.title %></p>
-			  	<p><%= lab.month %>月<%= lab.day %>日</p>
-			  	<p><%= lab.region %> <%= lab.place %></p>
-			  	<p><%= lab.language %></p>
-			  	<p><%= lab.price %>円
-
+       			<p>
+       				<%= attachment_image_tag lab, :image, :fill, 250, 150 %><br>
+       				<span class="favorite-title"><%= link_to lab.title,lab_path(lab) %></span><br>
+			  		<b>日時</b> <%= lab.month %>月<%= lab.day %>日<br>
+			  		<b><%= lab.region %></b> <%= lab.place %><br>
+			  		<b>言語</b> <%= lab.language %><br>
+			  		<b>参加費</b> <%= lab.price %>円
+			  	</p>
 			<% end %>
 
-		</div><!--col-md-4-->
-
+		</div>
 
 
 	</div>

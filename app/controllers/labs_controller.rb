@@ -18,7 +18,7 @@ class LabsController < ApplicationController
   def index
   	@labs = Lab.all
   	@user = current_user
-    @all_ranks = Lab.where(id: Favorite.group(:lab_id).order('count(lab_id) desc').limit(3).pluck(:lab_id))
+    @all_ranks = Lab.recent
   end
   def show
   	@lab = Lab.find(params[:id])
