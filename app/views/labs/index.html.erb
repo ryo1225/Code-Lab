@@ -40,6 +40,16 @@
        		 <!--ランキング表示-->
        	<h3>人気のもくもく会</h3>
 
+       		<% @all_ranks.each do |lab| %>
+
+       			<p><%= attachment_image_tag lab, :image, :fill, 200, 150 %></p>
+				<p><%= lab.title %></p>
+			  	<p><%= lab.month %>月<%= lab.day %>日</p>
+			  	<p><%= lab.region %> <%= lab.place %></p>
+			  	<p><%= lab.language %></p>
+			  	<p><%= lab.price %>円
+
+			<% end %>
 
 		</div><!--col-md-4-->
 
