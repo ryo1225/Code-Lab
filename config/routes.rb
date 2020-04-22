@@ -7,6 +7,7 @@ root to: 'homes#top'
   resources :labs do
   	resource :favorites, only: [:create, :destroy]
   	resource :lab_comments, only: [:create, :destroy]
+    resource :attends, only: [:create, :destroy]
   end
   get 'homes/top'
   get 'homes/about'

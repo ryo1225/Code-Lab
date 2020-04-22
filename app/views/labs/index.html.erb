@@ -17,7 +17,7 @@
 			  	<p><b>地域</b> <%= lab.region %> <b>場所詳細</b> <%= lab.place %></p>
 			  	<p><b>扱う言語</b> <%= lab.language %></p>
 			  	<p><b>参加費</b> <%= lab.price %>円　<b>コメント</b><%= lab.lab_comments.count %>件</p>
-			  	<p><b>参加希望人数</b> 人　<b>最大参加人数</b> <%= lab.people %>人</p>
+			  	<p><b>参加希望人数</b><%= lab.attends.count %> 人　<b>最大参加人数</b> <%= lab.people %>人</p>
 			 <% end %>
 			</div>
 		</div>
