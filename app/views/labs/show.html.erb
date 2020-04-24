@@ -13,27 +13,19 @@
 			  	<p><b>参加費</b> <%= @lab.price %>円</p>
                 <p><b>参加希望人数<%= @lab.attends.count %></b> 人　<b>最大参加人数</b> <%= @lab.people %>人</p>
     <!--参加希望ボタン-->
-        <p>
-          <% if @lab.attended_by?(current_user) %>
-            <%= link_to lab_attends_path(@lab), method: :delete do %>
-               <span class="btn btn-success">参加希望済み</span>
-            <% end %>
-          <% else %>
-            <%= link_to lab_attends_path(@lab), method: :post do %>
-              <span class="btn btn-info">参加を申し込む</span>
-            <% end %>
-          <% end %>
-        </p>
+         <div id = "attend_<%= @lab.id %>">
+            <%= render partial: 'labs/attend',lab: @lab %>
+         </div>
 
     <!--いいね機能-->
-        <div id = "favorite_<%= @lab.id %>">
+         <div id = "favorite_<%= @lab.id %>">
             <%= render partial: 'labs/favorite',lab: @lab %>
-        </div>
+         </div>
 
-        <!--地図表示-->
-            <div id='map'></div>
+    <!--地図表示-->
+         <div id='map'></div>
 
-			<% if @lab.user == current_user %>
+		     <% if @lab.user == current_user %>
  			   	<p><%= link_to '編集', edit_lab_path(@lab),class:"btn btn-success" %>
  			   	   <%= link_to '削除', lab_path(@lab), method: :delete, class:"btn btn-danger" %>
  			   	</p>
@@ -45,7 +37,7 @@
  			<%= form_for [@lab, @lab_comment] do |f| %>
     	<div class="row">
         	<div class="col-md-8">
-            	<%= f.text_area :comment, rows:'3', class: "form-control",placeholder: "コメントをここに" %>
+            	<%= f.text_area :comment, rows:'3', class: "form-control form-group",placeholder: "コメントをここに" %>
 
     			<%= f.submit "送信する", class: "btn btn-primary pull-right" %>
     	 	</div>
