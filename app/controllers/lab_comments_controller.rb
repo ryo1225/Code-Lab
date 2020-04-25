@@ -2,12 +2,12 @@ class LabCommentsController < ApplicationController
 
   def create
     @lab = Lab.find(params[:lab_id])
-    @lab_comment = @lab.lab_comments.new(lab_comment_params)
-    @lab_comment.user_id = current_user.id
+    @lab_comment =LabComment.new(lab_comment_params)
     if @lab_comment.save
       redirect_to lab_path(@lab)
     else
-      render template: "user/new"
+      @lab_comments = LabComment.where(lab_id: @lab.id)
+      render '/labs/show'
     end
   end
   def destroy
@@ -17,6 +17,6 @@ class LabCommentsController < ApplicationController
   end
   private
   def lab_comment_params
-    params.require(:lab_comment).permit(:comment)
+    params.require(:lab_comment).permit(:comment).merge({lab_id: @lab.id, user_id: current_user.id})
   end
 end

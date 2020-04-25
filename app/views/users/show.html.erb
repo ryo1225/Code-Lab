@@ -5,7 +5,7 @@
 		  	<div class="col-md-4">
 		  		<div class="form-group">
 		  			<p>
-		  		 		<%= attachment_image_tag(@user, :profile_image, :fill, 250, 180) %>
+		  		 		<%= attachment_image_tag(@user, :profile_image, :fill, 250, 180, fallback: "no-image", size:'250x180') %>
 		  			</p>
 		  		</div>
 		  	</div>

@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Favorite, type: :model do
+    let(:favorite) { create(:favorite) }
+
   describe 'アソシエーションのテスト' do
     context 'Userモデルとの関係' do
       it 'N:1となっている' do
