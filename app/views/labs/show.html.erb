@@ -3,7 +3,6 @@
 		<h2><b>もくもく会詳細</b></h2>
 
 	  <div class="col-md-6 col-md-offset-1">
-
 			  	<p><%= attachment_image_tag @lab, :image, :fill, 500, 300 %></p>
 			  <h2><%= @lab.title %></h2>
 			  	<p><b>開催者一言</b> <%= @lab.introduction %></p>
@@ -12,19 +11,16 @@
 			  	<p><b>扱う言語</b> <%= @lab.language %></p>
 			  	<p><b>参加費</b> <%= @lab.price %>円</p>
                 <p><b>参加希望人数<%= @lab.attends.count %></b> 人　<b>最大参加人数</b> <%= @lab.people %>人</p>
-    <!--参加希望ボタン-->
+
          <div id = "attend_<%= @lab.id %>">
             <%= render partial: 'labs/attend',lab: @lab %>
          </div>
 
-    <!--いいね機能-->
          <div id = "favorite_<%= @lab.id %>">
             <%= render partial: 'labs/favorite',lab: @lab %>
          </div>
 
-    <!--地図表示-->
          <div id='map'></div>
-
 		     <% if @lab.user == current_user %>
  			   	<p><%= link_to '編集', edit_lab_path(@lab),class:"btn btn-success" %>
  			   	   <%= link_to '削除', lab_path(@lab), method: :delete, class:"btn btn-danger" %>
@@ -32,31 +28,34 @@
  			<% end %>
 
 
+    <!-- コメントエラーメッセージ表示-->
+        <% if @lab_comment.errors.any? %>
+            <h4 class="comment-color"><%= @lab_comment.errors.count %>件のエラー</h4>
+                <ul>
+                  <% @lab_comment.errors.full_messages.each do |message| %>
+                    <li class="comment-color"><%= message %></li>
+                  <% end %>
+                </ul>
+        <% end %>
 
-
- 			<%= form_for [@lab, @lab_comment] do |f| %>
-    	<div class="row">
-        	<div class="col-md-8">
-            	<%= f.text_area :comment, rows:'3', class: "form-control form-group",placeholder: "コメントをここに" %>
-
-    			<%= f.submit "送信する", class: "btn btn-primary pull-right" %>
-    	 	</div>
-    	</div>
-			<% end %>
-
+ 		<%= form_for [@lab, @lab_comment] do |f| %>
+    	   <div class="row">
+        	   <div class="col-md-8">
+            	   <%= f.text_area :comment, rows:'3', class: "form-control form-group",placeholder: "コメントをここに" %>
+    			 <%= f.submit "送信する", class: "btn btn-primary pull-right" %>
+    	 	    </div>
+    	    </div>
+		<% end %>
 
 	    <% @lab.lab_comments.each do |lab_comment| %>
 			<div class="comment-text">
-                    <div class="comment-author clearfix">
+                    <div class="comment-author">
                         <b><%= lab_comment.user.name %>のコメント</b>
-                        <span class="comment-meta">
-                          <span class="comment-date"><%= lab_comment.created_at.strftime('%Y/%m/%d') %></span>
-                        </span>
                     </div>
                     <div class="comment-entry"><%= lab_comment.comment %></div>
         		<% if lab_comment.user == current_user %>
         		  <p>
-        			<%= link_to "削除する", lab_lab_comments_path(lab_comment.id), method: :delete, "data-confirm" => "Are you sure?" %>
+        			<%= link_to "削除する", lab_lab_comments_path(lab_comment.id), class: 'btn-sm btn-danger', method: :delete, "data-confirm" => "コメントを削除しますか?" %>
         		  </p>
         		<% end %>
         	</div>
@@ -64,7 +63,7 @@
 
 	  </div>
 
-            <!------- 検索機能 ---------->
+            <!-- 検索機能 -->
         <div class="col-md-4">
             <div class="search">
                 <div class="search-form">
@@ -77,11 +76,8 @@
              </div>
         </div>
 
-
-
 	</div>
 </div>
-
 
 
 

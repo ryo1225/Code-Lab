@@ -3,14 +3,14 @@
 
 		<h2><b>もくもく会一覧</b></h2>
 
-	<div class="col-md-12">
+	  <div class="col-md-12">
 		<div class="col-md-7 col-md-offset-1">
 			  <%= link_to "+", new_lab_path, class:"button" %>
 			<div class="form-group">
 			 <% @labs.each do |lab| %>
 			  	<p><%= attachment_image_tag lab, :image, :fill, 520, 300 %></p>
 			  <h2><%= link_to lab.title,lab_path(lab),class:"lab-title" %></h2>
-			  	<p><%= attachment_image_tag(lab.user, :profile_image, :fill, 50, 50 ) %>
+			  	<p><%= attachment_image_tag(lab.user, :profile_image, :fill, 50, 50, fallback: "no-image", size:'50x50' ) %>
 			  		<br>主催者<%= link_to lab.user.name, user_path(lab.user),class:"lab-user-name" %></p>
 			  	<p><b>開催者一言</b> <%= lab.introduction %></p>
 			  	<p><b>日時</b> <%= lab.month %>月<%= lab.day %>日 <%= lab.time %>時〜</p>
@@ -23,18 +23,17 @@
 		</div>
 
 
-
-		<!------- 検索機能 ---------->
+		<!-- 検索機能 -->
 		<div class="col-md-4">
         	<div class="search">
           		<div class="search-form">
-            <%= form_tag(search_search_path, method: :get) do %>
-              		<%= text_field_tag 'search[content]' %>
-              		<%= select_tag 'search[model]', options_for_select({ "言語" => "language", "地域" => "place" }) %>
-              		<%= submit_tag '検索', class: "btn btn-primary" %>
-            <% end %>
+            		<%= form_tag(search_search_path, method: :get) do %>
+              				<%= text_field_tag 'search[content]' %>
+              				<%= select_tag 'search[model]', options_for_select({ "言語" => "language", "地域" => "place" }) %>
+              				<%= submit_tag '検索', class: "btn btn-primary" %>
+            		<% end %>
           		</div>
-       		 </div>
+       		</div>
 
        		 <!--ランキング表示-->
        		<h3>人気のもくもく会</h3>
@@ -53,7 +52,7 @@
 		</div>
 
 
-	</div>
+	  </div>
 
 	</div>
 </div>

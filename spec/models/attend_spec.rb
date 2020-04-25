@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Attend, type: :model do
+	let(:attend) { create(:attend) }
+
   describe 'アソシエーションのテスト' do
     context 'Userモデルとの関係' do
       it 'N:1となっている' do
