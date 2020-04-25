@@ -4,8 +4,11 @@ class LabCommentsController < ApplicationController
     @lab = Lab.find(params[:lab_id])
     @lab_comment = @lab.lab_comments.new(lab_comment_params)
     @lab_comment.user_id = current_user.id
-    @lab_comment.save
-    redirect_to lab_path(@lab)
+    if @lab_comment.save
+      redirect_to lab_path(@lab)
+    else
+      render template: "user/new"
+    end
   end
   def destroy
 	@lab_comment = LabComment.find(params[:lab_id])

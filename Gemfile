@@ -46,6 +46,8 @@ group :development, :test do
   #Capistrano
   gem 'capistrano'
   gem 'capistrano-rails'
+  gem 'rspec-parameterized'
+  gem 'faker'
   gem 'capistrano3-puma'
   gem 'capistrano-rbenv'
 end
