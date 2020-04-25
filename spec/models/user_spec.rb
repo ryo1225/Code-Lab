@@ -1,17 +1,47 @@
 require 'rails_helper'
-RSpec.describe 'Userモデルのテスト', type: :model do
+RSpec.describe User, type: :model do
 
+  describe 'バリデーションのテスト' do
+    let(:user) { build(:user) }
 
-  describe 'Userバリデーションチェック' do
-  	it 'nameが空欄の場合、無効になる' do
-  		@user = FactoryBot.build(:user, name: '')
-  		expect(@user.valid?).to eq(false)
-  	end
-
-  	it 'emailが空欄の場合、無効になる' do
-  		@user = FactoryBot.build(:user, email: '')
-  		expect(@user.valid?).to eq(false)
-  	end
-
+    context 'nameカラム' do
+      it '空欄でないこと' do
+        user.name = ''
+        expect(user.valid?).to eq false;
+      end
+      it '20文字以下であること' do
+        user.name = Faker::Lorem.characters(number:21)
+        expect(user.valid?).to eq false;
+      end
+    end
+    context 'wordカラム' do
+      it '50文字以下であること' do
+        user.word = Faker::Lorem.characters(number:51)
+        expect(user.valid?).to eq false;
+      end
+    end
   end
+  describe 'アソシエーションのテスト' do
+    context 'Labモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(User.reflect_on_association(:labs).macro).to eq :has_many
+      end
+    end
+    context 'Lab_commentモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(User.reflect_on_association(:lab_comments).macro).to eq :has_many
+      end
+    end
+    context 'Favoriteモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(User.reflect_on_association(:favorites).macro).to eq :has_many
+      end
+    end
+    context 'Attendモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(User.reflect_on_association(:attends).macro).to eq :has_many
+      end
+    end
+  end
+
 end
