@@ -10,7 +10,7 @@
 			 <% @labs.each do |lab| %>
 			  	<p><%= attachment_image_tag lab, :image, :fill, 520, 300 %></p>
 			  <h2><%= link_to lab.title,lab_path(lab),class:"lab-title" %></h2>
-			  	<p><%= attachment_image_tag(lab.user, :profile_image, :fill, 50, 50, fallback: "no-image", size:'50x50' ) %>
+			  	<p><%= attachment_image_tag(lab.user, :profile_image, :fill, 50, 50, fallback: "no-image.png", size:'50x50' ) %>
 			  		<br>主催者<%= link_to lab.user.name, user_path(lab.user),class:"lab-user-name" %></p>
 			  	<p><b>開催者一言</b> <%= lab.introduction %></p>
 			  	<p><b>日時</b> <%= lab.month %>月<%= lab.day %>日 <%= lab.time %>時〜</p>
