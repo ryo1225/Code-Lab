@@ -16,7 +16,7 @@ class LabsController < ApplicationController
     end
   end
   def index
-  	@labs = Lab.all
+  	@labs = Lab.all.order(created_at: :desc)
   	@user = current_user
     @all_ranks = Lab.recent
   end

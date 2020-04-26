@@ -1,5 +1,7 @@
 class LabCommentsController < ApplicationController
 
+before_action :authenticate_user!
+
   def create
     @lab = Lab.find(params[:lab_id])
     @lab_comment =LabComment.new(lab_comment_params)
