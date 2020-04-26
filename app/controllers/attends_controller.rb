@@ -1,5 +1,7 @@
 class AttendsController < ApplicationController
 
+before_action :authenticate_user!
+
     def create
      @lab = Lab.find(params[:lab_id])
      attend = @lab.attends.new(user_id: current_user.id)

@@ -1,10 +1,8 @@
 
 
-		       <% if @lab.errors.any? %>
 		            <h4 class="comment-color"><%= @lab.errors.count %>件のエラー</h4>
 		                <ul>
 		                  <% @lab.errors.full_messages.each do |message| %>
 		                    <li class="comment-color"><%= message %></li>
 		                  <% end %>
 		                </ul>
-		        <% end %>

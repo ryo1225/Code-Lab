@@ -3,7 +3,9 @@
 		<h2><b>もくもく会新規投稿</b></h2>
 
 		<div class="col-md-4 col-md-offset-4">
+		  <% if @lab.errors.any? %>
 			<%= render partial: 'labs/error',lab: @lab %>
+		  <% end %>
 		</div>
 
 		<div class="col-md-8 col-md-offset-4">

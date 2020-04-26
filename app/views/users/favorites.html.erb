@@ -7,7 +7,7 @@
 				  		<div class="col-md-4">
 		  						<% lab = Lab.find_by(id: favorite.lab_id) %>
 		  						<% user = User.find_by(id: lab.user_id) %>
-									<p><%= attachment_image_tag lab, :image, :fill, 350, 200, fallback: "no-image.jpg" %></p>
+									<p><%= attachment_image_tag lab, :image, :fill, 350, 200 %></p>
 			  						<h4><%= link_to lab.title,lab_path(lab) %></h4>
 			  						<p><b>地域</b> <%= lab.region %> <b>場所</b> <%= lab.place %></p>
 					  				<p><b>日時　</b><%= lab.month %>月<%= lab.day %>日 <%= lab.time %>時〜</p>
