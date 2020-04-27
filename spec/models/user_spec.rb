@@ -15,8 +15,8 @@ RSpec.describe User, type: :model do
       end
     end
     context 'wordカラム' do
-      it '50文字以下であること' do
-        user.word = Faker::Lorem.characters(number:51)
+      it '200文字以下であること' do
+        user.word = Faker::Lorem.characters(number:201)
         expect(user.valid?).to eq false;
       end
     end
