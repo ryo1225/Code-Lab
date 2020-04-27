@@ -19,7 +19,7 @@
 			  	<p class="lab-info">参加費</p>
                 <p class="lab-text"><%= @lab.price %>円</p>
                 <p class="lab-info">現在の参加希望</p>
-                <p class="lab-text"><%= @lab.attends.count %>人</p>
+                <p class="lab-text"><%= link_to @lab.attends.count, users_attends_path(id: @user.id, lab_id: @lab.id) %>人</p>
                 <p class="lab-info">参加可能人数</p>
                 <p class="lab-text"><%= @lab.people %>人</p>
 

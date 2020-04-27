@@ -21,6 +21,11 @@ before_action :authenticate_user!
   	@user = User.find(params[:id])
   	@favorites = Favorite.where(user_id: @user.id)
   end
+  def attends
+    @user = User.find(params[:id])
+    @lab = Lab.find(params[:lab_id])
+    @users = @lab.attends.map(&:user)
+  end
   private
     def user_params
       params.require(:user).permit(:name, :email, :word, :profile_image)

@@ -1,0 +1,14 @@
+<div class="container">
+	<div class="row">
+		<h2><b>参加者一覧</b></h2>
+	  		<div class="col-md-12">
+		  		<% @users.each do |user| %>
+				  	<div class="col-md-4">
+						<p><%= attachment_image_tag user, :profile_image, :fill, 350, 200 ,fallback: "no-image.png", size:'350x200'%></p>
+	  					<h4>名前 <%= link_to user.name,user_path(user.id) %></h4>
+	  					<p><b>自己紹介</b><br><%= user.word %></p>
+					 </div>
+		  		<% end %>
+      		</div>
+	</div>
+</div>

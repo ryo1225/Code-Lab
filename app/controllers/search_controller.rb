@@ -7,5 +7,4 @@ class SearchController < ApplicationController
     	@labs = Lab.match(@model, @content)
   	end
 
-
 end
