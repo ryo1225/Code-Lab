@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :lab do
     title { Faker::Lorem.characters(number:20) }
-    introduction { Faker::Lorem.characters(number:50) }
+    introduction { Faker::Lorem.characters(number:1) }
     month { Faker::Lorem.characters(number:1) }
     day { Faker::Lorem.characters(number:1) }
     time { Faker::Lorem.characters(number:1) }

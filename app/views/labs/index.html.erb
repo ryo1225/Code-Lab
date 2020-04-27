@@ -12,12 +12,11 @@
 			  <h2><%= link_to lab.title,lab_path(lab),class:"lab-title" %></h2>
 			  	<p><%= attachment_image_tag(lab.user, :profile_image, :fill, 50, 50, fallback: "no-image.png", size:'50x50' ) %>
 			  		<br>主催者<%= link_to lab.user.name, user_path(lab.user),class:"lab-user-name" %></p>
-			  	<p><b>開催者一言</b> <%= lab.introduction %></p>
 			  	<p><b>日時</b> <%= lab.month %>月<%= lab.day %>日 <%= lab.time %>時〜</p>
 			  	<p><b>地域</b> <%= lab.region %> <b>場所詳細</b> <%= lab.place %></p>
 			  	<p><b>扱う言語</b> <%= lab.language %></p>
 			  	<p><b>参加費</b> <%= lab.price %>円　<b>コメント</b><%= lab.lab_comments.count %>件</p>
-			  	<p><b>参加希望人数</b><%= lab.attends.count %> 人　<b>最大参加人数</b> <%= lab.people %>人</p>
+			  	<p><b>現在の参加希望</b><%= lab.attends.count %>人　<b>参加可能人数</b> <%= lab.people %>人</p>
 			 <% end %>
 			</div>
 		</div>
@@ -44,8 +43,9 @@
        				<span class="favorite-title"><%= link_to lab.title,lab_path(lab) %></span><br>
 			  		<b>日時</b> <%= lab.month %>月<%= lab.day %>日<br>
 			  		<b><%= lab.region %></b> <%= lab.place %><br>
-			  		<b>言語</b> <%= lab.language %><br>
-			  		<b>参加費</b> <%= lab.price %>円
+			  		<b>扱う言語</b> <%= lab.language %><br>
+			  		<b>参加費</b> <%= lab.price %>円<br>
+			  		<b>現在の参加希望</b><%= lab.attends.count %>人
 			  	</p>
 			<% end %>
 

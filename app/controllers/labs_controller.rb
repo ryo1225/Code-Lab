@@ -39,7 +39,7 @@ class LabsController < ApplicationController
   def destroy
   	@lab = Lab.find(params[:id])
   	@lab.destroy
-  	redirect_to lab_path(@lab)
+  	redirect_to labs_path
   end
   private
   def lab_params
