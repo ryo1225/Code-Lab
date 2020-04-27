@@ -24,6 +24,7 @@ class LabsController < ApplicationController
   	@lab = Lab.find(params[:id])
     @lab_comment = LabComment.new
     @lab_comments = @lab.lab_comments
+    @user = current_user
   end
   def edit
   	@lab = Lab.find(params[:id])

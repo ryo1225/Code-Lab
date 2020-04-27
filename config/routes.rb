@@ -11,7 +11,8 @@ root to: 'homes#top'
   end
   get 'homes/top'
   get 'homes/about'
-  get "users/:id/favorites" => "users#favorites"
+  get "users/:id/favorites" => "users#favorites", as: 'users_favorites'
+  get "users/:id/attends" => "users#attends", as: 'users_attends'
   get 'search/search'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
