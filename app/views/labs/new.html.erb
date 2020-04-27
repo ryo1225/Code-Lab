@@ -8,18 +8,18 @@
 		  <% end %>
 		</div>
 
-		<div class="col-md-8 col-md-offset-4">
+		<div class="col-md-9 col-md-offset-3">
 			<%= form_for(@lab) do |f| %>
 				<div class="form-group">
 					<%= f.attachment_field :image %>
 				</div>
 				<div class="form-group">
 					<%= f.label  :ラボ名, class: "col-md-2" %>
-					<%= f.text_field :title, autofocus: true %>
+					<%= f.text_field :title, autofocus: true, placeholder: "駆け出しエンジニア会" %>
 				</div>
 				<div class="form-group">
 					<%= f.label  :ラボ紹介, class: "col-md-2" %>
-					<%= f.text_area :introduction, autofocus: true %>
+					<%= f.text_area :introduction, size: "40x12", autofocus: true, placeholder: "【主催者】プログラミング歴1年の現役エンジニア。【勉強のテーマ】主にHTML.CSS.Javasctiptなどのフロント言語です。【対象者】プログラミング始めたて〜エンジニア歴1年程の駆け出しエンジニア向け。【主催者一言】各自テーマを決めて、共有したり、成果を報告したりすれば楽しく勉強できるので、是非、参加してみてください！"  %>
 				</div>
 				<div class="form-group">
 					<%= f.label  :日時, class: "col-md-2" %>
@@ -36,19 +36,19 @@
 				</div>
 				<div class="form-group">
 					<%= f.label  :場所詳細, class: "col-md-2" %>
-					<%= f.text_area :place, autofocus: true %>
+					<%= f.text_area :place, size: "20x3", autofocus: true, placeholder: "スターバックスコーヒー代官山蔦屋書店" %>
 				</div>
 				<div class="form-group">
 					<%= f.label  :扱う言語, class: "col-md-2" %>
-					<%= f.text_field :language, autofocus: true %>
+					<%= f.text_field :language, autofocus: true, placeholder: "HTML.CSS.JavaScript" %>
 				</div>
 				<div class="form-group">
 					<%= f.label  :参加価格, class: "col-md-2" %>
-					<%= f.text_field :price, autofocus: true %>円
+					<%= f.text_field :price, autofocus: true, placeholder: "100" %>円
 				</div>
 				<div class="form-group">
 					<%= f.label  :募集人数, class: "col-md-2" %>
-					<%= f.text_field :people, autofocus: true %>人
+					<%= f.text_field :people, autofocus: true, placeholder: "3" %>人
 				</div>
 				<div class="form-group">
 					<%= f.submit '投稿',class:"btn btn-primary" %>

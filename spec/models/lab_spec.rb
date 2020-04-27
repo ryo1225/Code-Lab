@@ -20,10 +20,6 @@ RSpec.describe Lab, type: :model do
         lab.introduction = ''
         expect(lab.valid?).to eq false;
       end
-      it '50文字以下であること' do
-      	lab.introduction = Faker::Lorem.characters(number:51)
-      	expect(lab.valid?).to eq false;
-      end
     end
     context 'monthカラム' do
     	it '空欄でないこと' do

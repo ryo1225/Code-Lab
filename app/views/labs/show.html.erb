@@ -2,15 +2,26 @@
 	<div class="row">
 		<h2><b>もくもく会詳細</b></h2>
 
-	  <div class="col-md-6 col-md-offset-1">
-			  	<p><%= attachment_image_tag @lab, :image, :fill, 500, 300 %></p>
-			  <h2><%= @lab.title %></h2>
-			  	<p><b>開催者一言</b> <%= @lab.introduction %></p>
-			  	<p><b>日時 </b><%= @lab.month %>月<%= @lab.day %>日 <%= @lab.time %>時〜</p>
-			  	<p><b>地域</b> <%= @lab.region %> <b>場所詳細</b> <%= @lab.place %></p>
-			  	<p><b>扱う言語</b> <%= @lab.language %></p>
-			  	<p><b>参加費</b> <%= @lab.price %>円</p>
-                <p><b>参加希望人数<%= @lab.attends.count %></b> 人　<b>最大参加人数</b> <%= @lab.people %>人</p>
+	  <div class="col-md-6 col-md-offset-3">
+			  	<p><%= attachment_image_tag @lab, :image, :fill, 550, 300 %></p>
+			  <h2 class="lab-title-color"><%= @lab.title%></h2>
+			  	<p class="lab-info">もくもく会情報</p>
+                <p class="lab-text"><%= @lab.introduction %></p>
+			  	<p class="lab-info">日時</p>
+                <p class="lab-text"><%= @lab.month %>月<%= @lab.day %>日 <%= @lab.time %>時〜</p>
+			  	<p class="lab-info">地域</p>
+                <p class="lab-text"><%= @lab.region %></p>
+                <p class="lab-info">場所詳細</p>
+                <p class="lab-text"><%= @lab.place %></p>
+            <div id='map'>地図</div>
+			  	<p class="lab-info">扱う言語</p>
+                <p class="lab-text"><%= @lab.language %></p>
+			  	<p class="lab-info">参加費</p>
+                <p class="lab-text"><%= @lab.price %>円</p>
+                <p class="lab-info">現在の参加希望</p>
+                <p class="lab-text"><%= @lab.attends.count %>人</p>
+                <p class="lab-info">参加可能人数</p>
+                <p class="lab-text"><%= @lab.people %>人</p>
 
          <div id = "attend_<%= @lab.id %>">
             <%= render partial: 'labs/attend',lab: @lab %>
@@ -20,10 +31,9 @@
             <%= render partial: 'labs/favorite',lab: @lab %>
          </div>
 
-         <div id='map'></div>
 		     <% if @lab.user == current_user %>
- 			   	<p><%= link_to '編集', edit_lab_path(@lab),class:"btn btn-success" %>
- 			   	   <%= link_to '削除', lab_path(@lab), method: :delete, class:"btn btn-danger" %>
+ 			   	<p><%= link_to 'もくもく会情報編集', edit_lab_path(@lab),class:"btn btn-success" %>
+ 			   	   <%= link_to 'もくもく会情報削除', lab_path(@lab), method: :delete, class:"btn btn-danger" %>
  			   	</p>
  			<% end %>
 
@@ -63,18 +73,6 @@
 
 	  </div>
 
-            <!-- 検索機能 -->
-        <div class="col-md-4">
-            <div class="search">
-                <div class="search-form">
-            <%= form_tag(search_search_path, method: :get) do %>
-                    <%= text_field_tag 'search[content]' %>
-                    <%= select_tag 'search[model]', options_for_select({ "言語" => "lab", "地域" => "lab" }) %>
-                    <%= submit_tag '検索', class: "btn btn-primary" %>
-            <% end %>
-                </div>
-             </div>
-        </div>
 
 	</div>
 </div>
