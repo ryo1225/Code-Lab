@@ -23,9 +23,9 @@ Code Lab
 プログラミング学習をある程度進めていき、他にも同じように勉強している仲間を見つけたい時
 
 ### 設計書
-####テーブル定義書
+###テーブル定義書
 https://docs.google.com/spreadsheets/d/1NUuxHvPUvC8kXgfl5GVCp0SM5vb6FZBm6jKS6iUOT4g/edit?usp=sharing
-####ER図
+###ER図
 https://drive.google.com/file/d/18ucYFRAMwMldeq7MLmN3CV-digWZX_Lb/view?usp=sharing
 
 ### 機能一覧
