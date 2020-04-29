@@ -13,9 +13,9 @@ before_action :authenticate_user!
     end
   end
   def destroy
-	@lab_comment = LabComment.find(params[:lab_id])
-	@lab_comment.destroy
-	redirect_to request.referer
+	 @lab_comment = LabComment.find(params[:lab_id])
+	 @lab_comment.destroy
+	 redirect_to request.referer
   end
   private
   def lab_comment_params
