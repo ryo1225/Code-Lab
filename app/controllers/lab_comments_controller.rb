@@ -8,6 +8,7 @@ before_action :authenticate_user!
     if @lab_comment.save
       redirect_to lab_path(@lab)
     else
+      @user = current_user
       @lab_comments = LabComment.where(lab_id: @lab.id)
       render '/labs/show'
     end
