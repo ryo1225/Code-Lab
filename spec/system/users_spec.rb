@@ -46,3 +46,17 @@ end
     end
   end
 
+  describe '編集のテスト' do
+    context '自分の編集画面への遷移' do
+      it '遷移できる' do
+        visit edit_user_path(user)
+        expect(current_path).to eq('/users/' + user.id.to_s + '/edit')
+      end
+    end
+    context '他人の編集画面への遷移' do
+      it '遷移できない' do
+        visit edit_user_path(test_user2)
+        expect(current_path).to eq('/users/' + user.id.to_s)
+      end
+    end
+  end
