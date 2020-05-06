@@ -5,23 +5,23 @@
 	  <div class="col-md-6 col-md-offset-3">
 			  	<p><%= attachment_image_tag @lab, :image, :fill, 550, 300 %></p>
 			  <h2 class="lab-title-color"><%= @lab.title%></h2>
-			  	<p class="lab-info">もくもく会情報</p>
-                <p class="lab-text"><%= @lab.introduction %></p>
-			  	<p class="lab-info">日時</p>
-                <p class="lab-text"><%= @lab.month %>月<%= @lab.day %>日 <%= @lab.time %>時〜</p>
-			  	<p class="lab-info">地域</p>
-                <p class="lab-text"><%= @lab.region %></p>
-                <p class="lab-info">場所詳細</p>
-                <p class="lab-text"><%= @lab.place %></p>
+			  	<p class="lab-heading">もくもく会情報</p>
+                <p class="lab-detail"><%= @lab.introduction %></p>
+			  	<p class="lab-heading">日時</p>
+                <p class="lab-detail"><%= @lab.month %>月<%= @lab.day %>日 <%= @lab.time %>時〜</p>
+			  	<p class="lab-heading">地域</p>
+                <p class="lab-detail"><%= @lab.region %></p>
+                <p class="lab-heading">場所詳細</p>
+                <p class="lab-detail"><%= @lab.place %></p>
             <div id='map'>地図</div>
-			  	<p class="lab-info">扱う言語</p>
-                <p class="lab-text"><%= @lab.language %></p>
-			  	<p class="lab-info">参加費</p>
-                <p class="lab-text"><%= @lab.price %>円</p>
-                <p class="lab-info">現在の参加希望</p>
-                <p class="lab-text"><%= link_to @lab.attends.count, users_attends_path(id: @user.id, lab_id: @lab.id) %>人</p>
-                <p class="lab-info">参加可能人数</p>
-                <p class="lab-text"><%= @lab.people %>人</p>
+			  	<p class="lab-heading">扱う言語</p>
+                <p class="lab-detail"><%= @lab.language %></p>
+			  	<p class="lab-heading">参加費</p>
+                <p class="lab-detail"><%= @lab.price %>円</p>
+                <p class="lab-heading">現在の参加希望</p>
+                <p class="lab-detail"><%= link_to @lab.attends.count, users_attends_path(id: @user.id, lab_id: @lab.id) %>人</p>
+                <p class="lab-heading">参加可能人数</p>
+                <p class="lab-detail"><%= @lab.people %>人</p>
 
          <div id = "attend_<%= @lab.id %>">
             <%= render partial: 'labs/attend',lab: @lab %>
@@ -36,7 +36,6 @@
  			   	   <%= link_to 'もくもく会情報削除', lab_path(@lab), method: :delete, class:"btn btn-danger" %>
  			   	</p>
  			<% end %>
-
 
 
         <% if @lab_comment.errors.any? %>
@@ -110,8 +109,6 @@
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
 </script>
-
-
 
 
 
