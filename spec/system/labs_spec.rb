@@ -2,8 +2,7 @@ require 'rails_helper'
 
 describe '投稿のテスト' do
   let(:user) { create(:user) }
-  let!(:user2) { create(:user) }
-  let(:lab) { create(:lab) }
+  let(:lab) { create(:lab, user: user) }
   let(:lab2) { create(:lab, user: user2) }
 
   before do

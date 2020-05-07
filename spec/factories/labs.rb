@@ -8,8 +8,9 @@ FactoryBot.define do
     region { Faker::Lorem.characters(number:1) }
     place { Faker::Lorem.characters(number:1) }
     language { Faker::Lorem.characters(number:1) }
-    price { Faker::Lorem.characters(number:1) }
-    people { Faker::Lorem.characters(number:1) }
+    price { Faker::Number.number(1) }
+    people { Faker::Number.number(1) }
     user
+
   end
 end
