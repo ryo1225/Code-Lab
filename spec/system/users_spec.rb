@@ -25,7 +25,7 @@ describe 'ユーザー認証のテスト' do
   end
 end
 
-  describe 'ユーザーログイン' do
+describe 'ユーザーログイン' do
     let(:user) { create(:user) }
     before do
       visit new_user_session_path
@@ -44,6 +44,42 @@ end
         expect(current_path).to eq(new_user_session_path)
       end
     end
+end
+
+describe 'ユーザーのテスト' do
+  let(:user) { create(:user) }
+  let!(:test_user2) { create(:user) }
+  before do
+    visit new_user_session_path
+    fill_in 'user[email]', with: user.email
+    fill_in 'user[password]', with: user.password
+    click_button 'ログイン'
+  end
+
+  describe '詳細画面のテスト' do
+    before do
+      visit user_path(user)
+    end
+    context '表示の確認' do
+      it 'プロフィールと表示される' do
+        expect(page).to have_content('プロフィール')
+      end
+      it 'ユーザーの名前が表示される' do
+        expect(page).to have_content(user.name)
+      end
+      it 'ユーザーのメールアドレスが表示される' do
+        expect(page).to have_content(user.email)
+      end
+      it 'ユーザーの自己紹介が表示される' do
+        expect(page).to have_content(user.word)
+      end
+      it 'ユーザー画像のリンク先が正しい' do
+        expect(page).to have_link '', href: user_path(user)
+      end
+      it '以前のもくもく会開催と表示される' do
+        expect(page).to have_content('以前のもくもく会開催')
+      end
+    end
   end
 
   describe '編集のテスト' do
@@ -53,10 +89,44 @@ end
         expect(current_path).to eq('/users/' + user.id.to_s + '/edit')
       end
     end
-    context '他人の編集画面への遷移' do
-      it '遷移できない' do
-        visit edit_user_path(test_user2)
+
+    context '表示の確認' do
+      before do
+        visit edit_user_path(user)
+      end
+      it 'User編集ページと表示される' do
+        expect(page).to have_content('User編集ページ')
+      end
+      it '名前編集フォームに自分の名前が表示される' do
+        expect(page).to have_field 'user[name]', with: user.name
+      end
+      it '画像編集フォームが表示される' do
+        expect(page).to have_field 'user[profile_image]'
+      end
+      it 'メールアドレス編集フォームに自分のメールアドレスが表示される' do
+        expect(page).to have_field 'user[email]', with: user.email
+      end
+      it '自己紹介編集フォームに自分の自己紹介が表示される' do
+        expect(page).to have_field 'user[word]', with: user.word
+      end
+      it '編集に成功する' do
+        click_button '編集内容を保存する'
+        expect(current_path).to eq('/users/' + user.id.to_s)
+      end
+      it '編集に失敗する' do
+        fill_in 'user[name]', with: ''
+        click_button '編集内容を保存する'
+        expect(page).to have_content 'エラー'
         expect(current_path).to eq('/users/' + user.id.to_s)
       end
     end
   end
+end
+
+
+
+
+
+
+
+
