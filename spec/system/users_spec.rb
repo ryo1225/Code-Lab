@@ -123,10 +123,3 @@ describe 'ユーザーのテスト' do
   end
 end
 
-
-
-
-
-
-
-

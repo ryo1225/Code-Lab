@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    attributes:
+      lab:
+        title: もくもく会名
+        introduction: 紹介文        
+        place: 場所の詳細
+        language: 扱う言語
+        image: イメージ画像
+        price: 参加料金
+        people: 募集人数
+      user:
+        name: 名前
+        email: メールアドレス
+      lab_comment: 
+        comment: コメント
