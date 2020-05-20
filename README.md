@@ -1,6 +1,6 @@
 # README
 
-![code-lab-about](https://user-images.githubusercontent.com/55618173/82445876-8bfa2600-9ae0-11ea-8c14-fe9f1ca681f7.png)
+![code-lab-about](https://user-images.githubusercontent.com/55618173/82446126-0a56c800-9ae1-11ea-9149-c3bbb00714b7.png)
 
 # アプリケーションの概要
 アプリ名 **Code Lab**
